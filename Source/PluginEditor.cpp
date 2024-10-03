@@ -1,40 +1,21 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
-#include "PluginProcessor.h"
 #include "PluginEditor.h"
 
-//==============================================================================
-KickBassGuruAudioProcessorEditor::KickBassGuruAudioProcessorEditor (KickBassGuruAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
+KickBabyAudioProcessorEditor::KickBabyAudioProcessorEditor (KickBabyAudioProcessor& p)
+    : AudioProcessorEditor (&p), processorRef (p)
 {
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
     setSize (400, 300);
 }
 
-KickBassGuruAudioProcessorEditor::~KickBassGuruAudioProcessorEditor()
-{
-}
+KickBabyAudioProcessorEditor::~KickBabyAudioProcessorEditor() {}
 
-//==============================================================================
-void KickBassGuruAudioProcessorEditor::paint (juce::Graphics& g)
+void KickBabyAudioProcessorEditor::paint (juce::Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
+    g.fillAll (juce::Colours::black);
     g.setColour (juce::Colours::white);
     g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
+    g.drawFittedText ("KickBaby VST", getLocalBounds(), juce::Justification::centred, 1);
 }
 
-void KickBassGuruAudioProcessorEditor::resized()
+void KickBabyAudioProcessorEditor::resized()
 {
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
 }
